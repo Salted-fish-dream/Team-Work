@@ -9,7 +9,7 @@
         ]
     },
     "setting": {
-        "urlCheck": true,
+        "urlCheck": false,
         "es6": true,
         "enhance": true,
         "postcss": true,
@@ -35,13 +35,6 @@
             "disablePlugins": [],
             "outputPath": ""
         },
-        "packNpmManually":true,
-        "packNpmRelationList":[
-            {
-                "packageJsonPath": "./package.json",
-                "miniprogramNpmDistDir": "./miniprogram/"
-            }
-        ],
         "enableEngineNative": false,
         "useIsolateContext": true,
         "userConfirmedBundleSwitch": false,

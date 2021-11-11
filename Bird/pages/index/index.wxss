@@ -1,0 +1,38 @@
+page {
+    background: #F5F5F5;
+    overflow: hidden;
+}
+
+.scroll-box {
+    white-space: nowrap;
+    height: 75vh;
+}
+
+.card-box {
+    display: inline-block;
+}
+
+.card {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 60vh;
+    width: 80vw;
+    margin: 5vh 10vw;
+    font-size: 40px;
+    background: #FFFFFF;
+    border-radius: 4px;
+}
+
+.btn {
+    box-shadow: 1px 1px rgba(0, 0, 0, .6);
+    text-align: center;
+    line-height: 130rpx;
+    color: #FFFFFF;
+    width: 130rpx;
+    height: 130rpx;
+    border-radius: 50%;
+    background-color: blueviolet;
+}

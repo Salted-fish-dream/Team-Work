@@ -1,0 +1,10 @@
+<view>
+    <image class="" src="{{tempUrls}}" mode="widthFix" ></image>
+</view>
+
+
+
+<view>
+    <van-cell title="展示弹出层" is-link bind:click="showPopup"/>
+    <van-popup position="bottom" show="{{ show }}" bind:close="onClose">内容</van-popup>
+</view>
