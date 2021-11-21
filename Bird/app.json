@@ -1,9 +1,28 @@
 {
     "pages": [
         "pages/index/index",
+        "pages/outcome/outcome",
+        "pages/mine/mine",
         "pages/logs/logs",
-        "pages/outcome/outcome"
+        "custom-tab-tab/index"
     ],
+    "tabBar": {
+        "custom": true,
+        "list": [
+            {
+                "text": "发现",
+                "pagePath": "pages/index/index"
+            },
+            {
+                "text": "看点",
+                "pagePath": "pages/outcome/outcome"
+            },
+            {
+                "text": "设置",
+                "pagePath": "pages/mine/mine"
+            }
+        ]
+    },
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
@@ -14,6 +33,9 @@
     "sitemapLocation": "sitemap.json",
     "usingComponents": {
         "van-button": "@vant/weapp/button/index",
-        "van-popup": "@vant/weapp/popup/index"
+        "van-popup": "@vant/weapp/popup/index",
+        "van-tabbar": "@vant/weapp/tabbar/index",
+        "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+        "van-icon": "@vant/weapp/icon/index"
     }
 }

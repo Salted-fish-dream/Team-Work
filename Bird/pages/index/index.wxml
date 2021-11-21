@@ -1,18 +1,23 @@
-<scroll-view  class="scroll-box" 
-              scroll-x="{{true}}" 
-              scroll-into-view="{{toView}}" 
-              scroll-with-animation="f{{true}}" 
-              binddragstart="touchStart"
-              binddragend="touchEnd"
-            >
-    <view wx:for="{{list}}" wx:key="*this" class="card-box" id="card_{{index}}">
-        <view class="card">
-            <text>{{item}}</text>
-        </view>
-    </view>
-</scroll-view>
+<!-- <view class="time">{{time}}</view> -->
 
-<view class="">
-    <button class="btn" bindtap="findPic">选定</button>
+
+<view class="card">
+    <image class="contentImg" src="{{getTestImg}}"></image>
+    <view class="content">内容介绍</view>
 </view>
 
+
+<view class="albumText" bindtap="bindUpload1">
+    从相册选取
+    <van-icon class="arrow" name="arrow" />
+</view>
+
+<view class="">
+    <button class="btn" bindtap="bindUpload">
+        <van-icon class="icon" size="60rpx" name="search" />拍照识别
+    </button>
+</view>
+
+<van-tabbar active="{{ active }}" bind:change="onChange" active-color="" inactive-color="">
+    <van-tabbar-item wx:for="{{list}}" wx:key="index" icon="{{item.icon}}">{{item.text}}</van-tabbar-item>
+</van-tabbar>

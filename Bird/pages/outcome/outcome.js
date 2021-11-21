@@ -1,89 +1,35 @@
-// pages/outcome/outcome.js
-Page({
-
-    /**
-     * 页面的初始数据
-     */
-    data: {
-        tempUrls:null,
-        show:false,
-    },
-
-    showPopuo(){
-        this.setData({
-            show:true
-        })
-    },
-
-    onClose() {
-        this.setData({ show: false });
-    },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-        wx.getStorage({
-            key: 'tempImg',
-            success: (result)=>{
-                this.setData({
-                    tempUrls: result.data[0]
-                })
-                console.log(result.data[0]);
-                console.log(this.data.tempUrls);
-                
-            },
-            fail: ()=>{},
-            complete: ()=>{}
-        });
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+Component({
+  pageLifetimes:{
+    show(){
+      if(typeof this.getTabBar === "function" && this.getTabBar()){
+        this.getTabBar.init()
+      }
     }
+  },
+  data: {
+    active: 1,
+    condition: true,
+    list: [{
+        text: "发现",
+        icon: "home-o",
+        url: "/pages/index/index"
+    },
+    {
+        text: "看点",
+        icon: "eye-o",
+        url: "/pages/outcome/outcome"
+    },
+    {
+        text: "设置",
+        icon: "setting-o",
+        url: "/pages/mine/mine"
+    },]
+  },
+ methods:{
+   onChange(event) {
+    wx.switchTab({
+      url: this.data.list[event.detail].url
+  });
+   }
+ }
 })

@@ -1,10 +1,10 @@
-<view>
-    <image class="" src="{{tempUrls}}" mode="widthFix" ></image>
+<view wx:if="{{condition}}">
+  <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="还未上传图片" />
 </view>
 
 
 
-<view>
-    <van-cell title="展示弹出层" is-link bind:click="showPopup"/>
-    <van-popup position="bottom" show="{{ show }}" bind:close="onClose">内容</van-popup>
-</view>
+
+<van-tabbar active="{{ active }}" bind:change="onChange" active-color="" inactive-color="">
+  <van-tabbar-item wx:for="{{list}}" wx:key="index" icon="{{item.icon}}">{{item.text}}</van-tabbar-item>
+</van-tabbar>
