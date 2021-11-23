@@ -1,0 +1,26 @@
+<view class="background">
+    <view class="container">
+        <view class="userinfo">
+            <block wx:if="{{!hasUserInfo}}">
+                <button plain="true" type="default" size="mini" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称以便记录识别记录 </button>
+                <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称以查看识别记录 </button>
+            </block>
+            <block wx:else>
+                <van-image round width="4rem" height="4rem" src="{{userInfo.avatarUrl}}">
+                </van-image>
+                        <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+            </block>
+        </view>
+    </view>
+
+    <view class="displayContainer">
+        
+    </view>
+
+</view>
+
+
+
+<van-tabbar active="{{ active }}" bind:change="onChange" active-color="" inactive-color="">
+    <van-tabbar-item wx:for="{{list}}" wx:key="index" icon="{{item.icon}}">{{item.text}}</van-tabbar-item>
+</van-tabbar>
