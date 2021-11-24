@@ -1,0 +1,2 @@
+python detect.py --weight /root/anaconda3/envs/yolo/yolov5-master/runs/train/exp9/weights/best.pt --source /root/anaconda3/envs/yolo/yolov5-master/teamwork1/668/20211124013158.jpg --name 66820211124013158
+exit
