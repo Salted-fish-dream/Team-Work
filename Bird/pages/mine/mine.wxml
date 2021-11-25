@@ -14,7 +14,8 @@
     </view>
 
     <view class="displayContainer">
-        
+        <van-image width="5rem" height="5rem" src="{{userPic}}">
+        </van-image>
     </view>
 
 </view>
