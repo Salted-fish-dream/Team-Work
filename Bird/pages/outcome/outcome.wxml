@@ -1,8 +1,23 @@
-<view wx:if="{{condition}}">
-  <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="还未上传图片" />
+<van-notify id="van-notify"></van-notify>
+<view hidden="{{!condition}}">
+  <van-empty description="正在为您努力查资料" image="search" class="custom-image">
+    <van-button plain type="default" class="bottom-button" bind:click="changeFlag">点击查看</van-button>
+  </van-empty>
 </view>
-
-
+<view hidden="{{condition}}">
+  <scroll-view scroll-y="{{true}}" class="content" enhanced="{{true}}" show-scrollbar="{{false}}" bindscrolltolower="showTips">
+    <view class="card" bindlongpress="isDelete">
+      <image class="contentImg" src="{{getUploadFile}}"></image>
+      <view class="contentName">{{name}}</view>
+    </view>
+    <!-- <view class="content">{{BirdInfo}}</view> -->
+    <block wx:for="{{BirdInfo}}" wx:key="*this">
+      <view class="item">{{item}}</view>
+    </block>
+  </scroll-view>
+  <van-toast id="van-toast" />
+  <van-dialog id="van-dialog"></van-dialog>
+</view>
 
 
 <van-tabbar active="{{ active }}" bind:change="onChange" active-color="" inactive-color="">

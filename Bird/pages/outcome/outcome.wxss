@@ -1,1 +1,71 @@
 /* pages/outcome/outcome.wxss */
+.card {
+  background: #FFFFFF;
+  text-align: center;
+  vertical-align: middle;
+  width: 90%;
+  height: 800rpx;
+  margin-top: 100rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20rpx;
+  padding: 6rpx;
+  box-shadow: 0rpx 0.5rpx rgba(0,0,0, .3);
+  text-indent: 0rpx;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.content {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 1100rpx;
+  text-align: left;
+  text-indent: 40rpx;
+}
+.item {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.contentName {
+  font-size: 40rpx;
+  padding-top: 50rpx;
+  text-align: center;
+  vertical-align: middle
+}
+
+.custom-image {
+  height: 800rpx;
+  width: 100%;
+}
+.bottom-button {
+  width: 400rpx;
+  height: 300rpx;
+}
+
+.van-empty {
+  height: 900rpx;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 200rpx 0;
+}
+.van-button--normal {
+  font-size: var(--button-normal-font-size,60rpx);
+  padding: 0 15px;
+  margin-top: 200rpx;
+  width: 300rpx;
+  height: 80rp;
+}
+
+.contentImg {
+  vertical-align: top;
+  text-align: center;
+  width: 100%;
+  height: 80%;
+  margin-left: 0rpx;
+}

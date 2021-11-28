@@ -2,21 +2,29 @@
     <view class="container">
         <view class="userinfo">
             <block wx:if="{{!hasUserInfo}}">
-                <button plain="true" type="default" size="mini" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称以便记录识别记录 </button>
-                <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称以查看识别记录 </button>
+                <button class="btn" plain="true" type="default" size="middle" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 点击通过验证 </button>
+                <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 小程序希望获得你的头像昵称信息以便通过上传验证 </button>
             </block>
             <block wx:else>
-                <van-image round width="4rem" height="4rem" src="{{userInfo.avatarUrl}}">
-                </van-image>
-                        <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+                <!-- <van-image round width="4rem" height="4rem" src="{{userInfo.avatarUrl}}">
+                </van-image> -->
+                <view class="userinfo-avatar">
+                    <open-data type="userAvatarUrl"></open-data>
+                </view>
+                <!-- <view class="userinfo-nickname">{{userInfo.nickName}}</view> -->
+                <open-data type="userNickName"></open-data>
             </block>
+            <view class="usermotto">
+                <text class="user-motto">{{motto}}</text>
+            </view>
         </view>
     </view>
-
-    <view class="displayContainer">
-        
-    </view>
-
+    <!-- <view class="displayContainer">
+        <button bindtap="getRecord">查询记录</button>
+        <block wx:for="{{record}}" wx:key="*this">
+            <image src="{{item}}"></image>
+        </block>
+    </view>  -->
 </view>
 
 

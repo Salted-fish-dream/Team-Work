@@ -3,9 +3,10 @@
 
 <view class="card">
     <image class="contentImg" src="{{getTestImg}}"></image>
-    <view class="content">内容介绍</view>
+    <view class="content">你见过这样的鸟吗</view>
 </view>
 
+<van-toast id="van-toast" />
 
 <view class="albumText" bindtap="bindUpload1">
     从相册选取

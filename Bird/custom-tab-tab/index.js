@@ -7,7 +7,7 @@ Component({
             url: "/pages/index/index"
         },
         {
-            text: "看点",
+            text: "结果",
             icon: "eye-o",
             url: "/pages/outcome/outcome"
         },
@@ -17,7 +17,6 @@ Component({
             url: "/pages/mine/mine"
         },]
     },
-
     methods: {
         onChange(event){
             wx.switchTab({
