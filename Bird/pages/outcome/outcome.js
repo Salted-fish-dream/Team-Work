@@ -50,9 +50,18 @@ Component({
     changeFlag(){
       var that = this
       wx.getStorage({
+        key: "uploadFile",
+        success(res){
+          console.log(res.data)
+          that.setData({
+            getUploadFile: res.data
+          })
+        }
+      }),
+      wx.getStorage({
         key: "BirdInfo",
         success(res){
-          console.log(res)
+          // console.log(res)
           that.setData({
             BirdInfo: res.data.bird_msg,
             name:res.data.bird_name,

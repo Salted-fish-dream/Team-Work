@@ -46,44 +46,62 @@ Page({
     var that = this
     var id = that.data.openid
     wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['camera'],
-      success: function (res) {
-        var tempFilePaths = res.tempFilePaths
-        wx.uploadFile({
-          filePath: tempFilePaths[0],
-          name: 'uploadFile',
-          url: 'http://120.55.13.233:8001/upload/',
-          formData: {
-            openid: id,
-          },
-          method: 'POST',
-          success: function (res) {
-            console.log(res);
-            var response = JSON.parse(res.data)
-            if (res.statusCode === app.globalData.code.SUCCESS) {
-              console.log("发送成功")
-              console.log(response);
-              if (response.status === 1) {
-                console.log("图片为空")
-              } else if (response.status === 0) {
-                console.log(responce);
+        count: 1,
+        sizeType: ['original', 'compressed'],
+        sourceType: ['camera'],
+        success: function (res) {
+          // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+          var tempFilePaths = res.tempFilePaths
+          // console.log(tempFilePaths)
+          Toast.loading({
+            message: "正在识别，请稍等",
+            forbidClick: true,
+            duration: 0
+          })
+          wx.uploadFile({
+            filePath: tempFilePaths[0],
+            name: 'address', // 文件对应的键名，后端可以通过这个key获取到文件的二进制内容
+            url: 'http://120.55.13.233:8001/upload/',
+            formData: {
+              openid: id,
+            },
+            method: 'POST',
+            success: function (res) {
+              console.log(res);
+              var response = JSON.parse(res.data)
+              if (res.statusCode === app.globalData.code.SUCCESS) {
+                console.log("发送成功")
+                console.log(response);
+                if (response.status === 1) {
+                  console.log("图片或openID为空")
+                  wx.showToast({
+                    title: '请先进行验证',
+                    icon:"error",
+                    duration: 2000
+                  })
+                  Toast.clear()
+                } else if (response.status === 2) {
+                  console.log("未收录该鸟类")
+                  Toast.clear()
+                } else if (response.status === 0) {
+                  console.log("存在该品种的鸟");
+                  console.log(response.bird_name);
+                  console.log(response.bird_msg);
+                  wx.setStorage({
+                    key: "uploadFile",
+                    data: tempFilePaths[0]
+                  })
+                  wx.setStorageSync('BirdInfo', response)
+                  Toast.clear()
+                }
+              } else if (res.statusCode === app.globalData.code.FAIL) {
+                console.log("发送失败")
               }
-            } else if (res.statusCode === app.globalData.code.FAIL) {
-              console.log("发送失败")
             }
-          },
-          complete: function (res) {
-            wx.setStorage({
-              key: "uploadFile",
-              data: tempFilePaths[0]
-            })
-          }
-        })
-      }
+          })
+        }
     })
-  },
+},
 
 
   /**
