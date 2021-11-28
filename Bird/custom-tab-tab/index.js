@@ -17,7 +17,6 @@ Component({
             url: "/pages/mine/mine"
         },]
     },
-
     methods: {
         onChange(event){
             wx.switchTab({

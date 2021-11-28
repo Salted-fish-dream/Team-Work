@@ -58,9 +58,16 @@ Component({
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
           if(res.code){
               wx.request({
-                url: 'url',
+                url: 'http://120.55.13.233:8001/login/',
                 data: {
                   code:res.code
+                },
+                success:function(res){
+                  console.log(res.data.data.token)
+                  wx.setStorage({
+                    key: "openid",
+                    data: res.data.data.token
+                  })
                 }
               })
           } else{

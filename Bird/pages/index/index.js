@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    openid:123,
     active:0,
     getTestImg: '../../resources/image/003.jpg',
     files: [], // 图片文件数组
@@ -42,42 +43,57 @@ Page({
    */
   bindUpload: function () {
     var that = this
+    var id = that.data.openid
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['camera'],
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths
-        console.log(tempFilePaths[0])
+        var tempFilePath = res.tempFilePaths
+        // console.log(tempFilePath[0])
         wx.uploadFile({
-          filePath: 'tempFilePaths[0]',
+          filePath: tempFilePath[0],
           name: 'uploadFile', // 文件对应的键名，后端可以通过这个key获取到文件的二进制内容
-          url: 'url',
-          formDta: {
-            'user_id': '123',
+          url: 'http://120.55.13.233:8001/upload/',
+          formData: {
+            openid: id,
           },
+          method: 'POST',
           success: function (res) {
-            var object = res
+            // var object = res
+            // wx.setStorage({
+            //   key: "imgPath",
+            //   data: object
+            // }, {
+            //   key: "text",
+            //   data: object
+            // })
+            console.log(res)
+          },
+          fail: function(res){
+            console.log(res)
+          },
+          complete:function(res){
+            console.log(tempFilePath[0])
+            console.log(id)
             wx.setStorage({
-              key: "imgPath",
-              data: object
-            }, {
-              key: "text",
-              data: object
+              key: "uploadFile",
+              data: tempFilePath[0]
             })
-
           }
         })
       }
     })
   },
 
+
   /**
    * 选择图片进行处理函数
    */
   bindUpload1: function () {
     var that = this
+    var id = that.data.openid
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
@@ -85,24 +101,29 @@ Page({
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
-        console.log(tempFilePaths[0])
+        // console.log(tempFilePaths)
         wx.uploadFile({
-          filePath: 'tempFilePaths[0]',
-          name: 'uploadFile', // 文件对应的键名，后端可以通过这个key获取到文件的二进制内容
-          url: 'url',
-          formDta: {
-            'user_id': '123',
+          filePath: tempFilePaths[0],
+          name: 'address', // 文件对应的键名，后端可以通过这个key获取到文件的二进制内容
+          url: 'http://120.55.13.233:8001/upload/',
+          formData: {
+            openid: id,
           },
+          method: 'POST',
           success: function (res) {
-            var object = res
+            console.log("调用成功")
+            console.log(res)
+          },
+          fail:function (res){
+            console.log(res);
+          },
+          complete:function(res){
+            console.log(tempFilePaths[0])
+            console.log(id)
             wx.setStorage({
-              key: "imgPath",
-              data: object
-            }, {
-              key: "text",
-              data: object
+              key: "uploadFile",
+              data: tempFilePaths[0]
             })
-
           }
         })
       }
@@ -118,21 +139,28 @@ Page({
     this.setData({
       time:time
     })
-    console.log()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    var that = this
+    wx.getStorage({
+      key: "openid",
+      success(res){
+        that.setData({
+          openid : res.data
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      
+    
   },
 
   /**

@@ -1,6 +1,9 @@
 <view wx:if="{{condition}}">
   <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="还未上传图片" />
 </view>
+<view wx:else>
+  123
+</view>
 
 
 
