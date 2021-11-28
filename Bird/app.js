@@ -24,9 +24,9 @@ App({
     userInfo: null,
     code: {
       // 操作成功
-      SUCCESS: 300,
+      SUCCESS: 200,
       // 操作失败
-      FAIL: 400
+      FAIL: 500
     }
   }
 })

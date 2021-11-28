@@ -47,7 +47,7 @@
         "useCompilerPlugins": false
     },
     "compileType": "miniprogram",
-    "libVersion": "2.19.4",
+    "libVersion": "2.16.1",
     "appid": "wx9d2a1a860530e509",
     "projectname": "Bird",
     "debugOptions": {

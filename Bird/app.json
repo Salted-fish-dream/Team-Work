@@ -14,11 +14,11 @@
                 "pagePath": "pages/index/index"
             },
             {
-                "text": "看点",
+                "text": "结果",
                 "pagePath": "pages/outcome/outcome"
             },
             {
-                "text": "设置",
+                "text": "我的",
                 "pagePath": "pages/mine/mine"
             }
         ]
