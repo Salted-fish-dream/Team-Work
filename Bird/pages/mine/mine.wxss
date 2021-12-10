@@ -1,0 +1,43 @@
+.btn{
+  text-align: center;
+  vertical-align: middle
+}
+
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+.displayContainer{
+    margin-top: 60rpx;
+    background: #FFFFFF;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    height: 800rpx;
+}
+
+
+.userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #aaa;
+  }
+  
+  .userinfo-avatar {
+    overflow: hidden;
+    width: 128rpx;
+    height: 128rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+  }
+  
+  .usermotto {
+    margin-top: 200px;
+  }

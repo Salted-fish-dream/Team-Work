@@ -1,0 +1,24 @@
+<!-- <view class="time">{{time}}</view> -->
+
+
+<view class="card">
+    <image class="contentImg" src="{{getTestImg}}"></image>
+    <view class="content">你见过这样的鸟吗</view>
+</view>
+
+<van-toast id="van-toast" />
+
+<view class="albumText" bindtap="bindUpload1">
+    从相册选取
+    <van-icon class="arrow" name="arrow" />
+</view>
+
+<view class="">
+    <button class="btn" bindtap="bindUpload">
+        <van-icon class="icon" size="60rpx" name="search" />拍照识别
+    </button>
+</view>
+
+<van-tabbar active="{{ active }}" bind:change="onChange" active-color="" inactive-color="">
+    <van-tabbar-item wx:for="{{list}}" wx:key="index" icon="{{item.icon}}">{{item.text}}</van-tabbar-item>
+</van-tabbar>
